@@ -1,0 +1,52 @@
+.catalogSection {
+  position: relative;
+  padding: 10rem 0;
+  z-index: 1;
+}
+
+.container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+.layoutGrid {
+  display: grid;
+  grid-template-columns: 3.2fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* Toast Notifications */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--primary-orange);
+  color: var(--white);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  box-shadow: 0 10px 25px rgba(255, 152, 0, 0.3);
+  z-index: 999;
+  font-weight: 700;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 992px) {
+  .layoutGrid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+}

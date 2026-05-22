@@ -1,0 +1,140 @@
+export const productsData = [
+  {
+    id: 1,
+    title: "Organic Honey",
+    price: 15.25,
+    originalPrice: 24.33,
+    rating: 5,
+    image: "/assets/shop/products/organic-honey.png",
+    category: "Organic Honey",
+    onSale: true,
+    tags: ["Honey", "Organic", "Natural"],
+    reviewsCount: 12
+  },
+  {
+    id: 2,
+    title: "Jamun Honey",
+    price: 12.27,
+    maxPrice: 46.89,
+    rating: 5,
+    image: "/assets/shop/products/jamun-honey.png",
+    category: "Wild Honey",
+    onSale: false,
+    tags: ["Raw", "Honey", "Natural"],
+    reviewsCount: 8
+  },
+  {
+    id: 3,
+    title: "Wildflower Honey",
+    price: 17.23,
+    rating: 5,
+    image: "/assets/shop/products/wildflower-honey.png",
+    category: "Raw Honey",
+    onSale: false,
+    tags: ["Honey", "Fresh", "Natural"],
+    reviewsCount: 15
+  },
+  {
+    id: 4,
+    title: "Sage Honeycomb",
+    price: 38.00,
+    rating: 5,
+    image: "/assets/shop/products/sage-honeycomb.png",
+    category: "Green Honey",
+    onSale: false,
+    tags: ["Fresh", "Organic", "Sweet"],
+    reviewsCount: 6
+  },
+  {
+    id: 5,
+    title: "Dark Honey",
+    price: 12.27,
+    maxPrice: 46.89,
+    rating: 3,
+    image: "/assets/shop/products/dark-honey.png",
+    category: "Wild Honey",
+    onSale: false,
+    tags: ["Raw", "Honey", "Natural"],
+    reviewsCount: 3
+  },
+  {
+    id: 6,
+    title: "Mountain Wildflower Honey",
+    price: 84.17,
+    rating: 5,
+    image: "/assets/shop/products/mountain-wildflower-honey.png",
+    category: "Raw Honey",
+    onSale: false,
+    tags: ["Organic", "Honey", "Sweet"],
+    reviewsCount: 22
+  },
+  {
+    id: 7,
+    title: "Flavored Creamy Mango Honey",
+    price: 17.97,
+    rating: 4,
+    image: "/assets/shop/products/flavored-creamy-mango-honey.png",
+    category: "Green Honey",
+    onSale: false,
+    tags: ["Fresh", "Natural", "Sweet"],
+    reviewsCount: 9
+  },
+  {
+    id: 8,
+    title: "Wild Honey",
+    price: 19.97,
+    maxPrice: 46.99,
+    rating: 5,
+    image: "/assets/shop/products/wild-honey.png",
+    category: "Wild Honey",
+    onSale: false,
+    tags: ["Raw", "Honey", "Natural"],
+    reviewsCount: 14
+  },
+  {
+    id: 9,
+    title: "Cold Packed Sage Honey",
+    price: 15.97,
+    maxPrice: 46.89,
+    rating: 5,
+    image: "/assets/shop/products/cold-packed-sage-honey.png",
+    category: "Raw Honey",
+    onSale: false,
+    tags: ["Honey", "Organic", "Natural"],
+    reviewsCount: 11
+  },
+  {
+    id: 10,
+    title: "Creamy Raspberry Honey",
+    price: 28.99,
+    rating: 2,
+    image: "/assets/shop/products/creamy-raspberry-honey.png",
+    category: "Green Honey",
+    onSale: false,
+    tags: ["Fresh", "Sweet", "Natural"],
+    reviewsCount: 2
+  },
+  {
+    id: 11,
+    title: "Cold Packed Avocado Honey",
+    price: 12.27,
+    maxPrice: 46.89,
+    rating: 5,
+    image: "/assets/shop/products/cold-packed-avocado-honey.png",
+    category: "Organic Honey",
+    onSale: false,
+    tags: ["Organic", "Honey", "Natural"],
+    reviewsCount: 7
+  },
+  {
+    id: 12,
+    title: "Flavored Peach Honey",
+    price: 84.05,
+    rating: 5,
+    image: "/assets/shop/products/flavored-peach-honey.png",
+    category: "Green Honey",
+    onSale: false,
+    tags: ["Fresh", "Sweet", "Natural"],
+    reviewsCount: 18
+  }
+];
