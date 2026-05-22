@@ -1,0 +1,139 @@
+.about {
+  padding: 6rem 0;
+  position: relative;
+  background-color: var(--white);
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  position: relative;
+  z-index: 2;
+}
+
+.imageCol {
+  flex: 1;
+}
+
+.imageWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.mainImg {
+  position: relative;
+  z-index: 2;
+  border-radius: 20px;
+  margin-left: -20%;
+  width: 100%;
+  height: auto;
+  max-width: 500px;
+}
+
+.imgBgBlob {
+  position: absolute;
+  top: -15%;
+  left: -50%;
+  width: 100%;
+  height: 130%;
+  background-image: url('/assets/home/about/aboutshape.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 1;
+  opacity: 1;
+}
+
+.contentCol {
+  flex: 1;
+}
+
+.subtitle {
+  color: var(--primary-orange);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-size: 3rem;
+  color: var(--text-dark);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+}
+
+.desc {
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--primary-orange);
+  /* it's slightly pinkish in screenshot, maybe #FF7C5C */
+  background: linear-gradient(135deg, #FF8966 0%, #FF6B52 100%);
+  color: var(--white);
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  font-weight: 700;
+  margin-top: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 10px 20px rgba(255, 107, 82, 0.3);
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 25px rgba(255, 107, 82, 0.4);
+}
+
+.topRightRing {
+  position: absolute;
+  top: 2px;
+  right: -40px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 20px solid var(--primary-orange);
+  z-index: 1;
+}
+
+.bottomRightDots {
+  position: absolute;
+  bottom: -50px;
+  right: 5%;
+  width: 250px;
+  height: 250px;
+  background-image: radial-gradient(var(--bg-light-yellow) 20%, transparent 20%);
+  background-size: 20px 20px;
+  z-index: 1;
+}
+
+@media (max-width: 992px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .imgBgBlob {
+    display: none;
+    /* simplifies mobile view */
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+}

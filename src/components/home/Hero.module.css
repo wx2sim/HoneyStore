@@ -1,0 +1,186 @@
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: visible;
+  background-color: var(--white);
+  z-index: 70;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 6rem 2rem 0;
+  /* Added top padding for absolute header */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+.content {
+  flex: 1;
+  max-width: 500px;
+}
+
+.title {
+  font-size: 4.2rem;
+  line-height: 1;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: var(--text-dark);
+}
+
+.highlight {
+  color: var(--primary-orange);
+}
+
+.description {
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  font-size: 1.1rem;
+}
+
+.shopBtn {
+
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--primary-orange);
+  /* it's slightly pinkish in screenshot, maybe #FF7C5C */
+  background: linear-gradient(135deg, #FF8966 0%, #FF6B52 100%);
+  color: var(--white);
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  font-weight: 700;
+  margin-top: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 10px 20px rgba(255, 107, 82, 0.3);
+  border: none;
+  cursor: pointer;
+}
+
+.shopBtn:hover {
+  background-color: var(--primary-orange-hover);
+  transform: translateY(-2px);
+}
+
+.imageWrapper {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.heroImg {
+  width: 100%;
+  height: auto;
+  max-width: 650px;
+  object-fit: contain;
+  /* Add a subtle float animation */
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Background Shapes Absolute Positioning */
+.bgShapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.blobLightBg {
+  position: absolute;
+  top: -50px;
+  right: -0px;
+  width: 56%;
+  height: 92%;
+  overflow: visible;
+  background-image: url('/assets/home/hero/topshape.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top right;
+  z-index: 1;
+}
+
+.blobOrange {
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 51%;
+  height: 84%;
+  overflow: visible;
+  background-image: url('/assets/home/hero/buttomshape.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top right;
+  z-index: 2;
+}
+
+.beeContainer {
+  position: absolute;
+  top: 90%;
+  left: 30%;
+  z-index: 3;
+}
+
+.beeIcon {
+  animation: floatBee 4s ease-in-out infinite;
+}
+
+@keyframes floatBee {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(10px, -15px) rotate(10deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 4rem;
+  }
+
+  .content {
+    margin-bottom: 3rem;
+  }
+
+  .imageWrapper {
+    justify-content: center;
+  }
+
+  .title {
+    font-size: 3rem;
+  }
+}

@@ -1,0 +1,169 @@
+.blogSection {
+  padding: 4rem 0 8rem;
+  position: relative;
+  z-index: 2;
+  background-color: var(--bg-light-yellow);
+  overflow: visible;
+}
+
+.topWave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  transform: translateY(-99%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.waveImg {
+  object-fit: fill;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 6rem 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.subtitle {
+  color: var(--primary-orange);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: var(--text-dark);
+  font-weight: 800;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.card {
+  background-color: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  border: 1px solid rgba(255, 152, 0, 0.1);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.imageBox {
+  position: relative;
+  width: 100%;
+  height: 250px;
+}
+
+.blogImg {
+  transition: transform 0.5s ease;
+}
+
+.card:hover .blogImg {
+  transform: scale(1.05);
+}
+
+.content {
+  padding: 2rem;
+}
+
+.meta {
+  display: flex;
+  gap: 1.5rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.author,
+.date {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.author svg,
+.date svg {
+  color: var(--primary-orange);
+}
+
+.cardTitle {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.cardDesc {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.readMoreBtn {
+  font-weight: 700;
+  color: var(--primary-orange);
+  transition: color 0.3s ease;
+}
+
+.readMoreBtn:hover {
+  color: var(--primary-orange-hover);
+}
+
+.dots {
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.bottomWave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  transform: translateY(99%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.waveImgBottom {
+  transform: scaleY(-1);
+  object-fit: fill;
+}
+
+@media (max-width: 992px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
