@@ -187,8 +187,8 @@
 /* Decoratives */
 .dots {
   position: absolute;
-  height: 200;
-  width: 200;
+  height: 200px;
+  width: 200px;
   top: 10%;
   left: 5%;
   opacity: 0.5;
@@ -210,6 +210,11 @@
 @media (max-width: 992px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dots,
+  .circleBg {
+    display: none;
   }
 }
 

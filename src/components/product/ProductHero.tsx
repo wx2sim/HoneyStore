@@ -2,8 +2,9 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "@/components/shop/Hero.module.css";
+import { Product } from "@/data/products";
 
-export default function ProductHero({ product }: { product: any }) {
+export default function ProductHero({ product }: { product: Product }) {
   return (
     <section className={styles.hero}>
       <div className={styles.container}>

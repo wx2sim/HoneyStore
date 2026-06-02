@@ -42,7 +42,8 @@
 
 .card {
   background-color: var(--white);
-  height: 320px;
+  min-height: 320px;
+  height: auto;
   border-radius: 40px;
   padding: 3rem 2rem;
   text-align: center;

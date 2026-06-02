@@ -307,5 +307,63 @@
 @media (max-width: 992px) {
   .topSection {
     grid-template-columns: 1fr;
+    padding: 2rem;
+  }
+
+  .tabsSection {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .topSection,
+  .tabsSection {
+    padding: 1.5rem;
+  }
+
+  .tabHeaders {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .tabBtn {
+    font-size: 1rem;
+    padding-bottom: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .addToCartAction {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .qtyInput {
+    width: 100%;
+  }
+
+  .addBtn {
+    width: 100%;
+    padding: 0;
+  }
+
+  .thumbnails {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+  }
+
+  .thumbBox {
+    padding: 0.25rem;
+    border-radius: 8px;
+  }
+
+  .price {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .shortDescription {
+    padding: 1.2rem;
   }
 }

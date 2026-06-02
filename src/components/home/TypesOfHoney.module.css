@@ -178,9 +178,31 @@
 }
 
 @media (max-width: 576px) {
+  .card {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .imageBox {
+    position: relative;
+    width: 100%;
+    height: 220px;
+  }
+
   .content {
-    max-width: 100%;
-    padding-right: 0;
+    width: 100%;
+    padding: 2rem 1.5rem;
+    margin-left: 0;
+  }
+
+  .readMoreBtn {
+    align-self: flex-start;
+  }
+
+  .bee,
+  .dots,
+  .hexa {
+    display: none !important;
   }
 }
 

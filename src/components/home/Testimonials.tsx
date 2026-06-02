@@ -21,7 +21,7 @@ export default function Testimonials() {
             </div>
 
             <p className={styles.quoteText}>
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+              {"\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.\""}
             </p>
 
             <div className={styles.rating}>

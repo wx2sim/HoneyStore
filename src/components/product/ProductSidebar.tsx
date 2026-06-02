@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import styles from "@/components/shop/Sidebar.module.css";
 
 // Mock data matching the screenshot

@@ -1,6 +1,5 @@
 import Image from "next/image";
 import styles from "./About.module.css";
-import Link from "next/link";
 
 export default function About() {
   return (

@@ -277,6 +277,9 @@
   .productsGrid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .productsCol {
+    min-height: auto;
+  }
 }
 
 @media (max-width: 768px) {

@@ -2,10 +2,11 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./ProductList.module.css";
+import { Product } from "@/data/products";
 
 interface ProductListProps {
-  sortedProducts: any[];
-  paginatedProducts: any[];
+  sortedProducts: Product[];
+  paginatedProducts: Product[];
   currentPage: number;
   setCurrentPage: (val: number) => void;
   totalPages: number;
@@ -14,7 +15,7 @@ interface ProductListProps {
   setSortBy: (val: string) => void;
   handleResetFilters: () => void;
   filtersActive: boolean;
-  handleAddToCart: (product: any) => void;
+  handleAddToCart: (product: Product) => void;
 }
 
 export default function ProductList({

@@ -1,6 +1,5 @@
 import Image from "next/image";
 import styles from "./Shop.module.css";
-import Link from "next/link";
 
 const shopData = [
   {

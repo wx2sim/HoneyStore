@@ -1,4 +1,18 @@
-export const productsData = [
+export interface Product {
+  id: number;
+  title: string;
+  price: number;
+  originalPrice?: number;
+  maxPrice?: number;
+  rating: number;
+  image: string;
+  category: string;
+  onSale: boolean;
+  tags: string[];
+  reviewsCount?: number;
+}
+
+export const productsData: Product[] = [
   {
     id: 1,
     title: "Organic Honey",

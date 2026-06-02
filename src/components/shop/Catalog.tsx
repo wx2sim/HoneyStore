@@ -5,7 +5,7 @@ import ProductList from "./ProductList";
 import Sidebar from "./Sidebar";
 import styles from "./Catalog.module.css";
 
-import { productsData } from "@/data/products";
+import { productsData, Product } from "@/data/products";
 
 // Sidebar Recent Reviews Data
 const recentReviewsData = [
@@ -116,7 +116,7 @@ export default function Catalog() {
   const totalPages = Math.ceil(sortedProducts.length / productsPerPage);
 
   // Cart operations
-  const handleAddToCart = (product: any) => {
+  const handleAddToCart = (product: Product) => {
     setCart((prev) => {
       const existing = prev.find((item) => item.id === product.id);
       if (existing) {

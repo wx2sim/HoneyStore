@@ -5,9 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./ProductMain.module.css";
 import catalogStyles from "@/components/shop/ProductList.module.css"; // Reuse card styles
-import { productsData } from "@/data/products";
+import { productsData, Product } from "@/data/products";
 
-export default function ProductMain({ product }: { product: any }) {
+export default function ProductMain({ product }: { product: Product }) {
   const [activeTab, setActiveTab] = useState("description");
   const [quantity, setQuantity] = useState(1);
 
