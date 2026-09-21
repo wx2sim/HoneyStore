@@ -6,10 +6,12 @@ import Link from "next/link";
 import styles from "./ProductMain.module.css";
 import catalogStyles from "@/components/shop/ProductList.module.css"; // Reuse card styles
 import { productsData, Product } from "@/data/products";
+import { useCart } from "@/context/CartContext";
 
 export default function ProductMain({ product }: { product: Product }) {
   const [activeTab, setActiveTab] = useState("description");
   const [quantity, setQuantity] = useState(1);
+  const { addToCart } = useCart();
 
   const renderStars = (rating: number) => {
     return (
@@ -98,14 +100,23 @@ export default function ProductMain({ product }: { product: Product }) {
           </div>
           
           <div className={styles.addToCartAction}>
-            <input 
-              type="number" 
-              value={quantity} 
-              onChange={(e) => setQuantity(Number(e.target.value) || 1)} 
-              className={styles.qtyInput}
-              min="1"
-            />
-            <button className={styles.addBtn}>Add to cart</button>
+            <div className={styles.qtyControls}>
+              <button type="button" className={styles.qtyCtrlBtn} onClick={() => setQuantity(q => Math.max(1, q - 1))}>−</button>
+              <input 
+                type="number" 
+                value={quantity} 
+                onChange={(e) => setQuantity(Math.max(1, Number(e.target.value) || 1))} 
+                className={styles.qtyInput}
+                min="1"
+              />
+              <button type="button" className={styles.qtyCtrlBtn} onClick={() => setQuantity(q => q + 1)}>+</button>
+            </div>
+            <button
+              className={styles.addBtn}
+              onClick={() => addToCart({ id: product.id, title: product.title, price: product.price, image: product.image })}
+            >
+              Add to cart
+            </button>
           </div>
           
           <div className={styles.metaList}>

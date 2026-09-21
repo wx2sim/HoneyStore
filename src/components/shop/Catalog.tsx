@@ -6,6 +6,7 @@ import Sidebar from "./Sidebar";
 import styles from "./Catalog.module.css";
 
 import { productsData, Product } from "@/data/products";
+import { useCart } from "@/context/CartContext";
 
 // Sidebar Recent Reviews Data
 const recentReviewsData = [
@@ -41,9 +42,8 @@ export default function Catalog() {
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [sortBy, setSortBy] = useState("default");
   
-  // Cart Simulation State
-  const [cart, setCart] = useState<{ id: number; title: string; price: number; image: string; quantity: number }[]>([]);
-  const [toastMessage, setToastMessage] = useState<string | null>(null);
+  // Cart from Context
+  const { cart, cartTotal, addToCart, removeFromCart, toastMessage } = useCart();
 
   // Pagination State
   const [currentPage, setCurrentPage] = useState(1);
@@ -115,29 +115,13 @@ export default function Catalog() {
 
   const totalPages = Math.ceil(sortedProducts.length / productsPerPage);
 
-  // Cart operations
   const handleAddToCart = (product: Product) => {
-    setCart((prev) => {
-      const existing = prev.find((item) => item.id === product.id);
-      if (existing) {
-        return prev.map((item) =>
-          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-        );
-      }
-      return [...prev, { id: product.id, title: product.title, price: product.price, image: product.image, quantity: 1 }];
-    });
-    
-    setToastMessage(`Added "${product.title}" to cart!`);
-    setTimeout(() => setToastMessage(null), 3000);
+    addToCart({ id: product.id, title: product.title, price: product.price, image: product.image });
   };
 
   const handleRemoveFromCart = (id: number) => {
-    setCart((prev) => prev.filter((item) => item.id !== id));
+    removeFromCart(id);
   };
-
-  const cartTotal = useMemo(() => {
-    return cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  }, [cart]);
 
   // Clear all filters
   const handleResetFilters = () => {
