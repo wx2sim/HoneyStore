@@ -43,7 +43,7 @@ export default function Blog() {
           {blogPosts.map((post) => (
             <div key={post.id} className={styles.card}>
               <div className={styles.imageBox}>
-                <Image src={post.image} alt={post.title} layout="fill" objectFit="cover" className={styles.blogImg} />
+                <Image src={post.image} alt={post.title} fill style={{ objectFit: "cover" }} className={styles.blogImg} />
               </div>
               <div className={styles.content}>
                 <div className={styles.meta}>
