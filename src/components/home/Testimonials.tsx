@@ -46,6 +46,13 @@ export default function Testimonials() {
             />
           </div>
         </div>
+
+        {/* View All Testimonials button */}
+        <div className={styles.viewAllWrapper}>
+          <button className={styles.viewAllBtn}>
+            View All
+          </button>
+        </div>
       </div>
 
       {/* Decoratives */}

@@ -162,18 +162,62 @@
   }
 }
 
+.viewAllWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.viewAllBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #FF8966 0%, #FF6B52 100%);
+  color: var(--white);
+  padding: 0.8rem 2.2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  box-shadow: 0 10px 20px rgba(255, 107, 82, 0.3);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.viewAllBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 25px rgba(255, 107, 82, 0.4);
+}
+
 @media (max-width: 768px) {
+  .testimonials {
+    padding: 3.5rem 0;
+  }
+
+  .container {
+    padding: 0 1.2rem;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+
   .testimonialCard {
     flex-direction: column-reverse;
     text-align: center;
+    border-radius: 24px;
   }
 
   .imageBox {
-    padding: 3rem 0 0 0;
+    padding: 2rem 0 0 0;
+  }
+
+  .customerImg {
+    width: 140px;
+    height: 140px;
   }
 
   .content {
-    padding: 2rem;
+    padding: 1.5rem 1.2rem;
   }
 
   .quoteIcon {
@@ -191,5 +235,10 @@
 
   .nextBtn {
     right: 10px;
+  }
+
+  .bee,
+  .bgBlob {
+    display: none !important;
   }
 }

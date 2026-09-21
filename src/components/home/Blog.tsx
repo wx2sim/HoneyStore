@@ -65,6 +65,13 @@ export default function Blog() {
             </div>
           ))}
         </div>
+
+        {/* View All Posts button */}
+        <div className={styles.viewAllWrapper}>
+          <Link href="/blog" className={styles.viewAllBtn}>
+            View All Posts
+          </Link>
+        </div>
       </div>
 
       {/* Decorative */}

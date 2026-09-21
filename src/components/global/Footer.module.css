@@ -161,7 +161,30 @@
 }
 
 @media (max-width: 576px) {
+  .footer {
+    padding-top: 3.5rem;
+    margin-top: 2rem;
+  }
+
+  .container {
+    padding: 0 1.2rem;
+  }
+
   .grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .col {
+    align-items: center;
+  }
+
+  .socials {
+    justify-content: center;
+  }
+
+  .subscribeForm {
+    width: 100%;
   }
 }

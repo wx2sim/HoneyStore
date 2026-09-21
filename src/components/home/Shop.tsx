@@ -68,6 +68,13 @@ export default function Shop() {
             </div>
           ))}
         </div>
+
+        {/* View All Products button */}
+        <div className={styles.viewAllWrapper}>
+          <a href="/shop" className={styles.viewAllBtn}>
+            View Products
+          </a>
+        </div>
       </div>
       
       {/* Decorative Elements */}

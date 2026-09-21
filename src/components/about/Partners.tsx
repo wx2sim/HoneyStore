@@ -8,23 +8,33 @@ const partnersData = [
   { id: 4, image: "/assets/about/partners/partner-4.png", alt: "Partner 4" },
 ];
 
+// Quadruple array to create smooth seamless infinite looping
+const duplicatedPartners = [...partnersData, ...partnersData, ...partnersData, ...partnersData];
+
 export default function Partners() {
   return (
     <section className={styles.partnersSection}>
-
-
       <div className={styles.container}>
         <div className={styles.header}>
           <span className={styles.subtitle}>IN CONJUNCTION</span>
           <h2 className={styles.title}>Our Partners</h2>
         </div>
 
-        <div className={styles.grid}>
-          {partnersData.map((partner) => (
-            <div key={partner.id} className={styles.logoWrapper}>
-              <Image src={partner.image} alt={partner.alt} width={150} height={150} className={styles.logoImg} />
-            </div>
-          ))}
+        {/* Marquee Loop Moving Left to Right */}
+        <div className={styles.marqueeContainer}>
+          <div className={styles.marqueeTrack}>
+            {duplicatedPartners.map((partner, index) => (
+              <div key={`${partner.id}-${index}`} className={styles.logoWrapper}>
+                <Image
+                  src={partner.image}
+                  alt={partner.alt}
+                  width={220}
+                  height={100}
+                  className={styles.logoImg}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
