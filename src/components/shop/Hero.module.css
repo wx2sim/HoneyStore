@@ -6,7 +6,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  padding: 10rem 0 8rem;
+  padding: 7rem 0 5rem;
   text-align: center;
   overflow: visible;
 }
@@ -67,4 +67,16 @@
 .waveImg {
   transform: scaleY(-1);
   object-fit: fill;
+}
+
+@media (max-width: 992px) {
+  .hero {
+    padding: 5rem 1rem 4rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero {
+    padding: 4rem 1rem 3rem;
+  }
 }

@@ -15,10 +15,11 @@
   left: 0;
   width: 100%;
   height: 180px;
-  background-image: url('/assets/home/technology/waveSvg.svg');
-  background-size: 100% 100%;
+  background-image: url('/assets/home/technology/waveSvgreverse.svg');
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
+ 
   z-index: 1;
 }
 
@@ -29,7 +30,7 @@
   width: 100%;
   height: 125px;
   background-image: url('/assets/home/technology/waveSvgreverse.svg');
-  background-size: 100% 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom center;
   transform: scaleY(-1);

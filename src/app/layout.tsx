@@ -20,6 +20,7 @@ export const metadata: Metadata = {
 import Header from "@/components/global/Header";
 import Footer from "@/components/global/Footer";
 import CartDrawer from "@/components/global/CartDrawer";
+import PageTransition from "@/components/global/PageTransition";
 import { CartProvider } from "@/context/CartContext";
 
 export default function RootLayout({
@@ -33,6 +34,7 @@ export default function RootLayout({
         <CartProvider>
           <Header />
           <CartDrawer />
+          <PageTransition />
           {children}
           <Footer />
         </CartProvider>

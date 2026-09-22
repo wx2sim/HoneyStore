@@ -1,7 +1,7 @@
 .catalogSection {
   position: relative;
-  padding: 10rem 0;
-  z-index: 1;
+  padding: 5rem 0 8rem;
+  z-index: 20;
 }
 
 .container {
@@ -11,10 +11,110 @@
 }
 
 .layoutGrid {
-  display: grid;
-  grid-template-columns: 3.2fr 1fr;
-  gap: 4rem;
-  align-items: start;
+  display: block;
+}
+
+.shopToolbar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0.55rem;
+  background: var(--white);
+  border: 1px solid #e9e4dc;
+  border-radius: 18px;
+  box-shadow: 0 14px 35px rgba(75, 54, 29, 0.1);
+}
+
+.toolbarSearch {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex: 1.4;
+  min-width: 220px;
+  padding: 0.55rem 1rem;
+  color: var(--primary-orange);
+}
+
+.toolbarSearch input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  color: var(--text-dark);
+  background: transparent;
+  font: inherit;
+  font-size: 0.95rem;
+}
+
+.toolbarSearch input::placeholder {
+  color: #92908c;
+}
+
+.toolbarField {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 145px;
+  padding: 0.25rem 1.1rem;
+  border-left: 1px solid #e5e1db;
+}
+
+.toolbarField span {
+  color: #69645e;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.toolbarField select {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  padding: 0.25rem 1.5rem 0.25rem 0;
+  color: var(--text-dark);
+  background: transparent;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.clearFilters {
+  align-self: center;
+  margin: 0 0.5rem;
+  padding: 0.65rem 1rem;
+  border: 0;
+  border-radius: 10px;
+  color: var(--primary-orange-hover);
+  background: #fff5e7;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.resultsLine {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  max-width: 1120px;
+  margin: 1.5rem auto 2rem;
+  color: #77716a;
+  font-size: 0.85rem;
+}
+
+.resultsLine > span:first-child {
+  color: var(--text-dark);
+  font-weight: 800;
+}
+
+.resultsRule {
+  width: 32px;
+  height: 1px;
+  background: #d9d1c6;
 }
 
 /* Toast Notifications */
@@ -46,7 +146,44 @@
 
 @media (max-width: 992px) {
   .layoutGrid {
-    grid-template-columns: 1fr;
-    gap: 4rem;
+    display: block;
+  }
+
+  .shopToolbar {
+    flex-wrap: wrap;
+  }
+
+  .toolbarSearch {
+    flex-basis: 100%;
+    border-bottom: 1px solid #e5e1db;
+  }
+}
+
+@media (max-width: 576px) {
+  .catalogSection {
+    padding-top: 3rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .shopToolbar {
+    border-radius: 14px;
+  }
+
+  .toolbarField {
+    flex-basis: calc(50% - 0.5rem);
+    min-width: 0;
+    padding: 0.7rem 0.8rem;
+  }
+
+  .toolbarField:nth-of-type(3) {
+    border-left: 0;
+  }
+
+  .clearFilters {
+    flex: 1;
+    margin: 0.4rem;
   }
 }

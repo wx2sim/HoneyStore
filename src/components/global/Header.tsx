@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import styles from "./Header.module.css";
 import { useCart } from "@/context/CartContext";
 import { productsData } from "@/data/products";
@@ -15,7 +15,11 @@ export default function Header() {
   const [searchQuery, setSearchQuery] = useState("");
   const searchInputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
+  const pathname = usePathname();
   const { cartCount, openCart } = useCart();
+
+  const isActivePath = (path: string) =>
+    pathname === path || (path !== "/" && pathname.startsWith(`${path}/`));
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
@@ -117,22 +121,22 @@ export default function Header() {
 
             {/* Menu Items */}
             <div className={styles.menuLinksList}>
-              <Link href="/" className={`${styles.menuLink} ${styles.active}`} onClick={closeMenu}>
+              <Link href="/" className={`${styles.menuLink} ${isActivePath("/") ? styles.active : ""}`} onClick={closeMenu}>
                 <span>Home</span> <span className={styles.caret}>▾</span>
               </Link>
-              <Link href="/about" className={styles.menuLink} onClick={closeMenu}>
+              <Link href="/about" className={`${styles.menuLink} ${isActivePath("/about") ? styles.active : ""}`} onClick={closeMenu}>
                 <span>About Us</span> <span className={styles.caret}>▾</span>
               </Link>
-              <Link href="/shop" className={styles.menuLink} onClick={closeMenu}>
+              <Link href="/shop" className={`${styles.menuLink} ${isActivePath("/shop") ? styles.active : ""}`} onClick={closeMenu}>
                 <span>Shop</span> <span className={styles.caret}>▾</span>
               </Link>
-              <Link href="/blog" className={styles.menuLink} onClick={closeMenu}>
+              <Link href="/blog" className={`${styles.menuLink} ${isActivePath("/blog") ? styles.active : ""}`} onClick={closeMenu}>
                 <span>Blog</span> <span className={styles.caret}>▾</span>
               </Link>
-              <Link href="/gallery" className={styles.menuLink} onClick={closeMenu}>
+              <Link href="/gallery" className={`${styles.menuLink} ${isActivePath("/gallery") ? styles.active : ""}`} onClick={closeMenu}>
                 <span>Gallery</span> <span className={styles.caret}>▾</span>
               </Link>
-              <Link href="/contact" className={styles.menuLink} onClick={closeMenu}>
+              <Link href="/contact" className={`${styles.menuLink} ${isActivePath("/contact") ? styles.active : ""}`} onClick={closeMenu}>
                 <span>Contact Us</span> <span className={styles.caret}>▾</span>
               </Link>
             </div>

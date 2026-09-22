@@ -13,6 +13,7 @@ export default function CheckoutForm() {
   const { cart, cartTotal, cartCount, clearCart } = useCart();
   const [step, setStep] = useState<Step>("form");
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>("card");
+  const [orderNumber, setOrderNumber] = useState<number>(0);
 
   const [form, setForm] = useState({
     firstName: "",
@@ -41,6 +42,7 @@ export default function CheckoutForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     clearCart();
+    setOrderNumber(Math.floor(Math.random() * 90000) + 10000);
     setStep("success");
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -59,7 +61,7 @@ export default function CheckoutForm() {
             Thank you, <strong>{form.firstName}</strong>! Your order has been received and is being prepared.
           </p>
           <div className={styles.successDetail}>
-            <span>Order #HNY-{Math.floor(Math.random() * 90000) + 10000}</span>
+            <span>Order #HNY-{orderNumber}</span>
             <span>A confirmation email was sent to <strong>{form.email}</strong></span>
           </div>
           <div className={styles.successActions}>

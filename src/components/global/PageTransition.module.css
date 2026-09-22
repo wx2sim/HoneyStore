@@ -1,0 +1,21 @@
+.transitionSvg {
+  --transition-stroke-1: #fff3d6;
+  --transition-stroke-2: #ff9800;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(1.5);
+  pointer-events: none;
+  z-index: 3000;
+}
+
+.transitionSvg svg {
+  width: 100%;
+  height: 100%;
+}
+
+.transitionSvg path {
+  stroke-dasharray: 99999;
+  stroke-dashoffset: 99999;
+}

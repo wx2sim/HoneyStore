@@ -24,7 +24,7 @@
 
 .content {
   flex: 1;
-  max-width: 500px;
+  max-width: 300px;
 }
 
 .title {
@@ -83,7 +83,7 @@
   max-width: 650px;
   object-fit: contain;
   /* Add a subtle float animation */
-  animation: float 6s ease-in-out infinite;
+  animation: float 5s ease-in-out infinite;
 }
 
 @keyframes float {
@@ -113,29 +113,29 @@
 
 .blobLightBg {
   position: absolute;
-  top: -50px;
-  right: -0px;
-  width: 56%;
-  height: 92%;
+  top: 0;
+  right: 0;
+  width: 65%;
+  height: 100%;
   overflow: visible;
   background-image: url('/assets/home/hero/topshape.png');
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
-  background-position: top right;
+  background-position: right bottom;
   z-index: 1;
 }
 
 .blobOrange {
   position: absolute;
-  top: -50px;
-  right: -50px;
-  width: 51%;
-  height: 84%;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
   overflow: visible;
   background-image: url('/assets/home/hero/buttomshape.png');
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
-  background-position: top right;
+  background-position: left bottom;
   z-index: 2;
 }
 
@@ -169,8 +169,8 @@
   .container {
     flex-direction: column-reverse;
     text-align: center;
-    padding-top: 5rem;
-    gap: 2rem;
+    padding-top: 11rem;
+    gap: 3rem;
   }
 
   .content {
@@ -184,10 +184,27 @@
   .imageWrapper {
     justify-content: center;
     width: 100%;
+    z-index: 4;
   }
 
   .heroImg {
-    max-width: 300px;
+    max-width: 550px;
+  }
+
+  .blobLightBg {
+    width: 90%;
+    height: 60%;
+    top: -20px;
+    right: 0;
+    background-position: left top;
+  }
+
+  .blobOrange {
+    width: 90%;
+    height: 55%;
+    top: -20px;
+    right: 0;
+    background-position: left top;
   }
 
   .title {

@@ -11,10 +11,7 @@ interface ProductListProps {
   setCurrentPage: (val: number) => void;
   totalPages: number;
   productsPerPage: number;
-  sortBy: string;
-  setSortBy: (val: string) => void;
   handleResetFilters: () => void;
-  filtersActive: boolean;
   handleAddToCart: (product: Product) => void;
 }
 
@@ -25,10 +22,7 @@ export default function ProductList({
   setCurrentPage,
   totalPages,
   productsPerPage,
-  sortBy,
-  setSortBy,
   handleResetFilters,
-  filtersActive,
   handleAddToCart
 }: ProductListProps) {
   
@@ -58,25 +52,6 @@ export default function ProductList({
         <div className={styles.resultCount}>
           Showing {sortedProducts.length > 0 ? (currentPage - 1) * productsPerPage + 1 : 0}–
           {Math.min(currentPage * productsPerPage, sortedProducts.length)} of {sortedProducts.length} results
-          {filtersActive && (
-            <button onClick={handleResetFilters} className={styles.resetBadge}>
-              Reset Filters &times;
-            </button>
-          )}
-        </div>
-        
-        <div className={styles.sortingWrapper}>
-          <select
-            value={sortBy}
-            onChange={(e) => setSortBy(e.target.value)}
-            className={styles.sortSelect}
-          >
-            <option value="default">Default sorting</option>
-            <option value="price-low">Sort by price: low to high</option>
-            <option value="price-high">Sort by price: high to low</option>
-            <option value="rating">Sort by rating</option>
-            <option value="name">Sort by name</option>
-          </select>
         </div>
       </div>
 
@@ -93,6 +68,7 @@ export default function ProductList({
               )}
               
               <div className={styles.productImageBox}>
+                <span className={styles.productCategory}>{product.category}</span>
                 <Link href={`/product/${product.id}`} style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
                   <Image
                     src={product.image}

@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -108,13 +110,13 @@ export default function PostDetail({ post }: Props) {
             </div>
 
             <p className={styles.bodyPara}>
-              Whether you are a curious home cook, a health enthusiast, or a dedicated beekeeper, understanding the nuances of honey can deepen your appreciation for one of nature's most extraordinary gifts. From the hive to the jar, every step of the honey-making process is a collaboration between bees, flowers, seasons, and the careful craft of the beekeeper.
+              Whether you are a curious home cook, a health enthusiast, or a dedicated beekeeper, understanding the nuances of honey can deepen your appreciation for one of nature&apos;s most extraordinary gifts. From the hive to the jar, every step of the honey-making process is a collaboration between bees, flowers, seasons, and the careful craft of the beekeeper.
             </p>
 
             {/* Tags */}
             <div className={styles.tagRow}>
               <span className={styles.tagLabel}>Tags:</span>
-              {post.category.split(" ").concat(["Honey", "Organic", "Natural"]).map((tag) => (
+              {Array.from(new Set(post.category.split(" ").concat(["Honey", "Organic", "Natural"]))).map((tag) => (
                 <Link key={tag} href={`/blog`} className={styles.tag}>{tag}</Link>
               ))}
             </div>

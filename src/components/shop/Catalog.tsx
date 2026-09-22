@@ -2,48 +2,19 @@
 
 import React, { useState, useMemo } from "react";
 import ProductList from "./ProductList";
-import Sidebar from "./Sidebar";
 import styles from "./Catalog.module.css";
 
 import { productsData, Product } from "@/data/products";
 import { useCart } from "@/context/CartContext";
-
-// Sidebar Recent Reviews Data
-const recentReviewsData = [
-  {
-    id: 1,
-    title: "Jamun Honey",
-    rating: 5,
-    author: "Admin",
-    image: "/assets/shop/products/jamun-honey.png"
-  },
-  {
-    id: 2,
-    title: "Wild Honey",
-    rating: 5,
-    author: "John",
-    image: "/assets/shop/products/wild-honey.png"
-  },
-  {
-    id: 3,
-    title: "Flavored Creamy Mango Honey",
-    rating: 4,
-    author: "Jane",
-    image: "/assets/shop/products/flavored-creamy-mango-honey.png"
-  }
-];
 
 export default function Catalog() {
   // Filters State
   const [searchQuery, setSearchQuery] = useState("");
   const [priceLimit, setPriceLimit] = useState(100);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [selectedRating, setSelectedRating] = useState<number | null>(null);
-  const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [sortBy, setSortBy] = useState("default");
   
-  // Cart from Context
-  const { cart, cartTotal, addToCart, removeFromCart, toastMessage } = useCart();
+  const { addToCart, toastMessage } = useCart();
 
   // Pagination State
   const [currentPage, setCurrentPage] = useState(1);
@@ -54,17 +25,6 @@ export default function Catalog() {
     const counts: Record<string, number> = {};
     productsData.forEach((p) => {
       counts[p.category] = (counts[p.category] || 0) + 1;
-    });
-    return counts;
-  }, []);
-
-  const ratingsCount = useMemo(() => {
-    const counts: Record<number, number> = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
-    productsData.forEach((p) => {
-      const rounded = Math.round(p.rating);
-      if (counts[rounded] !== undefined) {
-        counts[rounded] += 1;
-      }
     });
     return counts;
   }, []);
@@ -81,15 +41,9 @@ export default function Catalog() {
       // Category filter
       const matchesCategory = selectedCategory ? product.category === selectedCategory : true;
       
-      // Rating filter
-      const matchesRating = selectedRating ? product.rating === selectedRating : true;
-      
-      // Tag filter
-      const matchesTag = selectedTag ? product.tags.includes(selectedTag) : true;
-
-      return matchesSearch && matchesPrice && matchesCategory && matchesRating && matchesTag;
+      return matchesSearch && matchesPrice && matchesCategory;
     });
-  }, [searchQuery, priceLimit, selectedCategory, selectedRating, selectedTag]);
+  }, [searchQuery, priceLimit, selectedCategory]);
 
   // Sorted Products
   const sortedProducts = useMemo(() => {
@@ -119,22 +73,16 @@ export default function Catalog() {
     addToCart({ id: product.id, title: product.title, price: product.price, image: product.image });
   };
 
-  const handleRemoveFromCart = (id: number) => {
-    removeFromCart(id);
-  };
-
   // Clear all filters
   const handleResetFilters = () => {
     setSearchQuery("");
     setPriceLimit(100);
     setSelectedCategory(null);
-    setSelectedRating(null);
-    setSelectedTag(null);
     setSortBy("default");
     setCurrentPage(1);
   };
 
-  const filtersActive = !!(selectedCategory || selectedRating || selectedTag || searchQuery || priceLimit < 100);
+  const filtersActive = !!(selectedCategory || searchQuery || priceLimit < 100);
 
   return (
     <section className={styles.catalogSection}>
@@ -142,8 +90,53 @@ export default function Catalog() {
       {toastMessage && <div className={styles.toast}>{toastMessage}</div>}
 
       <div className={styles.container}>
+        <div className={styles.shopToolbar}>
+          <div className={styles.toolbarSearch}>
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="7.5" /><path d="m20 20-3.5-3.5" /></svg>
+            <input
+              type="search"
+              value={searchQuery}
+              onChange={(e) => { setSearchQuery(e.target.value); setCurrentPage(1); }}
+              placeholder="Search honey products"
+              aria-label="Search honey products"
+            />
+          </div>
+          <label className={styles.toolbarField}>
+            <span>Category</span>
+            <select value={selectedCategory ?? "all"} onChange={(e) => { setSelectedCategory(e.target.value === "all" ? null : e.target.value); setCurrentPage(1); }}>
+              <option value="all">All products</option>
+              {Object.keys(categoriesCount).map((category) => <option key={category} value={category}>{category}</option>)}
+            </select>
+          </label>
+          <label className={styles.toolbarField}>
+            <span>Price up to</span>
+            <select value={priceLimit} onChange={(e) => { setPriceLimit(Number(e.target.value)); setCurrentPage(1); }}>
+              <option value="100">Any price</option>
+              <option value="25">$25</option>
+              <option value="50">$50</option>
+              <option value="75">$75</option>
+            </select>
+          </label>
+          <label className={styles.toolbarField}>
+            <span>Sort by</span>
+            <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+              <option value="default">Featured</option>
+              <option value="price-low">Price: low to high</option>
+              <option value="price-high">Price: high to low</option>
+              <option value="rating">Top rated</option>
+              <option value="name">Name</option>
+            </select>
+          </label>
+          {filtersActive && <button onClick={handleResetFilters} className={styles.clearFilters}>Clear</button>}
+        </div>
+
+        <div className={styles.resultsLine}>
+          <span>{sortedProducts.length} products</span>
+          <span className={styles.resultsRule}></span>
+          <span>Pure honey, carefully selected</span>
+        </div>
+
         <div className={styles.layoutGrid}>
-          {/* Left Column: Product Grid */}
           <ProductList 
             sortedProducts={sortedProducts}
             paginatedProducts={paginatedProducts}
@@ -151,32 +144,8 @@ export default function Catalog() {
             setCurrentPage={setCurrentPage}
             totalPages={totalPages}
             productsPerPage={productsPerPage}
-            sortBy={sortBy}
-            setSortBy={setSortBy}
             handleResetFilters={handleResetFilters}
-            filtersActive={filtersActive}
             handleAddToCart={handleAddToCart}
-          />
-          
-          {/* Right Column: Sidebar */}
-          <Sidebar 
-            priceLimit={priceLimit}
-            setPriceLimit={setPriceLimit}
-            setCurrentPage={setCurrentPage}
-            cart={cart}
-            cartTotal={cartTotal}
-            handleRemoveFromCart={handleRemoveFromCart}
-            ratingsCount={ratingsCount}
-            selectedRating={selectedRating}
-            setSelectedRating={setSelectedRating}
-            searchQuery={searchQuery}
-            setSearchQuery={setSearchQuery}
-            categoriesCount={categoriesCount}
-            selectedCategory={selectedCategory}
-            setSelectedCategory={setSelectedCategory}
-            selectedTag={selectedTag}
-            setSelectedTag={setSelectedTag}
-            recentReviewsData={recentReviewsData}
           />
         </div>
       </div>
