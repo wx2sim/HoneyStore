@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -49,7 +50,7 @@ export default function CheckoutForm() {
 
   if (step === "success") {
     return (
-      <div className={styles.successPage}>
+      <motion.div className={styles.successPage} initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }}>
         <div className={styles.successCard}>
           <div className={styles.successIconWrapper}>
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -69,13 +70,13 @@ export default function CheckoutForm() {
             <Link href="/" className={styles.goHome}>Back to Home</Link>
           </div>
         </div>
-      </div>
+      </motion.div>
     );
   }
 
   if (cart.length === 0) {
     return (
-      <div className={styles.emptyPage}>
+      <motion.div className={styles.emptyPage} initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }}>
         <div className={styles.emptyCard}>
           <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#D1D5DB" strokeWidth="1.5">
             <circle cx="9" cy="21" r="1" /><circle cx="20" cy="21" r="1" />
@@ -85,14 +86,14 @@ export default function CheckoutForm() {
           <p>Add some honey to your cart before checking out!</p>
           <Link href="/shop" className={styles.shopLink}>Go to Shop →</Link>
         </div>
-      </div>
+      </motion.div>
     );
   }
 
   return (
     <div className={styles.page}>
       {/* Hero Banner */}
-      <div className={styles.heroBanner}>
+      <motion.div className={styles.heroBanner} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} viewport={{ once: true }}>
         <div className={styles.heroBg} />
         <div className={styles.heroContent}>
           <nav className={styles.breadcrumb}>
@@ -103,7 +104,7 @@ export default function CheckoutForm() {
           <h1 className={styles.heroTitle}>Checkout</h1>
           <p className={styles.heroSub}>{cartCount} item{cartCount !== 1 ? "s" : ""} in your cart</p>
         </div>
-      </div>
+      </motion.div>
 
       <div className={styles.container}>
         <form className={styles.layout} onSubmit={handleSubmit}>
@@ -112,7 +113,7 @@ export default function CheckoutForm() {
           <div className={styles.formSide}>
 
             {/* Contact Info */}
-            <section className={styles.formSection}>
+            <motion.section className={styles.formSection} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} viewport={{ once: true }}>
               <h2 className={styles.sectionTitle}>
                 <span className={styles.stepNum}>1</span> Contact Information
               </h2>
@@ -136,10 +137,10 @@ export default function CheckoutForm() {
                   <input id="phone" name="phone" type="tel" placeholder="+1 (555) 000-0000" value={form.phone} onChange={handleChange} />
                 </div>
               </div>
-            </section>
+            </motion.section>
 
             {/* Shipping */}
-            <section className={styles.formSection}>
+            <motion.section className={styles.formSection} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} viewport={{ once: true }}>
               <h2 className={styles.sectionTitle}>
                 <span className={styles.stepNum}>2</span> Shipping Address
               </h2>
@@ -195,10 +196,10 @@ export default function CheckoutForm() {
                   </p>
                 )}
               </div>
-            </section>
+            </motion.section>
 
             {/* Payment */}
-            <section className={styles.formSection}>
+            <motion.section className={styles.formSection} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} viewport={{ once: true }}>
               <h2 className={styles.sectionTitle}>
                 <span className={styles.stepNum}>3</span> Payment Method
               </h2>
@@ -279,7 +280,7 @@ export default function CheckoutForm() {
                   <p>You will pay in cash when your order arrives at your door. No card details needed.</p>
                 </div>
               )}
-            </section>
+            </motion.section>
 
             <button type="submit" className={styles.placeOrderBtn}>
               Place Order — ${total.toFixed(2)} →

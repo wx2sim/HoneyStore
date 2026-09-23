@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { blogPosts } from "@/data/blogData";
@@ -43,7 +44,7 @@ const ZigZagLine = () => (
 
 export default function BlogGrid() {
   return (
-    <section className={styles.blogSection}>
+    <motion.section className={styles.blogSection} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} viewport={{ once: true }}>
       <div className={styles.container}>
         {/* Blog Grid */}
         <div className={styles.grid}>
@@ -121,6 +122,6 @@ export default function BlogGrid() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

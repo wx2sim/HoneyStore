@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Image from "next/image";
 import styles from "./Services.module.css";
 
@@ -24,7 +27,7 @@ const servicesData = [
 
 export default function Services() {
   return (
-    <section className={styles.services}>
+    <motion.section className={styles.services} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} viewport={{ once: true }}>
       {/* Decorative Top Wave - White to Light Yellow */}
       <div className={styles.topWave}>
         <Image 
@@ -65,6 +68,6 @@ export default function Services() {
           priority 
         />
       </div>
-    </section>
+    </motion.section>
   );
 }

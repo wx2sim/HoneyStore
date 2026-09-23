@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -44,7 +45,7 @@ export default function ProductMain({ product }: { product: Product }) {
   }
 
   return (
-    <div className={styles.mainWrapper}>
+    <motion.div className={styles.mainWrapper} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} viewport={{ once: true }}>
       {/* Top Details Section */}
       <div className={styles.topSection}>
         
@@ -211,6 +212,6 @@ export default function ProductMain({ product }: { product: Product }) {
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

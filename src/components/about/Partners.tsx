@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Image from "next/image";
 import styles from "./Partners.module.css";
 
@@ -13,7 +16,7 @@ const duplicatedPartners = [...partnersData, ...partnersData, ...partnersData, .
 
 export default function Partners() {
   return (
-    <section className={styles.partnersSection}>
+    <motion.section className={styles.partnersSection} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} viewport={{ once: true }}>
       <div className={styles.container}>
         <div className={styles.header}>
           <span className={styles.subtitle}>IN CONJUNCTION</span>
@@ -37,6 +40,6 @@ export default function Partners() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

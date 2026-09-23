@@ -1,9 +1,18 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Image from "next/image";
 import styles from "./Testimonials.module.css";
 
 export default function Testimonials() {
   return (
-    <section className={styles.testimonials}>
+    <motion.section
+      className={styles.testimonials}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true }}
+    >
       <div className={styles.container}>
         <div className={styles.header}>
           <span className={styles.subtitle}>Testimonials</span>
@@ -58,6 +67,6 @@ export default function Testimonials() {
       {/* Decoratives */}
       <Image src="/assets/home/testimonials/bee.png" alt="" width={180} height={180} className={styles.bee} />
       <div className={styles.bgBlob}></div>
-    </section>
+    </motion.section>
   );
 }

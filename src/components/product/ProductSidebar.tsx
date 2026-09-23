@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import React from "react";
 import Image from "next/image";
 import styles from "@/components/shop/Sidebar.module.css";
@@ -50,7 +53,7 @@ export default function ProductSidebar() {
   };
 
   return (
-    <aside className={styles.sidebarCol}>
+    <motion.aside className={styles.sidebarCol} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} viewport={{ once: true }}>
       {/* Widget 1: Cart */}
       <div className={styles.widget}>
         <div className={styles.widgetRibbon}></div>
@@ -131,6 +134,6 @@ export default function ProductSidebar() {
         </div>
       </div>
 
-    </aside>
+    </motion.aside>
   );
 }

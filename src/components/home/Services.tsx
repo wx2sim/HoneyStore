@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Image from "next/image";
 import styles from "./Services.module.css";
 
@@ -24,7 +27,13 @@ const servicesData = [
 
 export default function Services() {
   return (
-    <section className={styles.services}>
+    <motion.section
+      className={styles.services}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true }}
+    >
       {/* Decorative Hexagons */}
       <Image
         src="/assets/home/services/5HexaShapes.png"
@@ -58,6 +67,6 @@ export default function Services() {
         <Image src="/assets/home/services/upsidedownbee.png" alt="" width={120} height={120} className={styles.bee} />
         <div className={styles.beePath}></div>
       </div>
-    </section>
+    </motion.section>
   );
 }

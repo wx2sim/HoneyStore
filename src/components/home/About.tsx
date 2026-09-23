@@ -1,9 +1,18 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Image from "next/image";
 import styles from "./About.module.css";
 
 export default function About() {
   return (
-    <section className={styles.about}>
+    <motion.section
+      className={styles.about}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true }}
+    >
       <div className={styles.container}>
         {/* Left Side: Image */}
         <div className={styles.imageCol}>
@@ -43,6 +52,6 @@ export default function About() {
       {/* Decoratives */}
       <div className={styles.topRightRing}></div>
       <div className={styles.bottomRightDots}></div>
-    </section>
+    </motion.section>
   );
 }

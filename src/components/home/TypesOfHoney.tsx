@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Image from "next/image";
 import styles from "./TypesOfHoney.module.css";
 import Link from "next/link";
@@ -35,7 +38,13 @@ const honeyTypes = [
 
 export default function TypesOfHoney() {
   return (
-    <section className={styles.typesSection}>
+    <motion.section
+      className={styles.typesSection}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true }}
+    >
       <div className={styles.bgBlob}></div>
       <div className={styles.container}>
         <div className={styles.header}>
@@ -68,6 +77,6 @@ export default function TypesOfHoney() {
       <Image src="/assets/home/types_of_honey/beeShape.png" alt="" width={150} height={150} className={styles.bee} />
       <Image src="/assets/home/types_of_honey/dots.png" alt="" width={150} height={150} className={styles.dots} />
       <Image src="/assets/home/types_of_honey/3Hexa.png" alt="" width={180} height={180} className={styles.hexa} />
-    </section>
+    </motion.section>
   );
 }

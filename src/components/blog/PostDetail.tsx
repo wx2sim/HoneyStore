@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -34,7 +35,7 @@ export default function PostDetail({ post }: Props) {
   const recentPosts = blogPosts.filter((p) => p.id !== post.id).slice(0, 4);
 
   return (
-    <main className={styles.page}>
+    <motion.main className={styles.page} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} viewport={{ once: true }}>
       {/* ── Hero Banner ──────────────────────────────────── */}
       <div className={styles.hero}>
         <div className={styles.heroBg}>
@@ -225,7 +226,7 @@ export default function PostDetail({ post }: Props) {
         </div>
 
         {/* ── Related Posts ──────────────────────────────── */}
-        <section className={styles.relatedSection}>
+        <motion.section className={styles.relatedSection} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} viewport={{ once: true }}>
           <h2 className={styles.relatedHeading}>
             <span className={styles.headingDot}>◆</span> Related Posts
           </h2>
@@ -246,8 +247,8 @@ export default function PostDetail({ post }: Props) {
               </article>
             ))}
           </div>
-        </section>
+        </motion.section>
       </div>
-    </main>
+    </motion.main>
   );
 }

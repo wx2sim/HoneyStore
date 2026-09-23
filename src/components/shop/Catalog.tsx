@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import React, { useState, useMemo } from "react";
 import ProductList from "./ProductList";
 import styles from "./Catalog.module.css";
@@ -10,7 +11,8 @@ import { useCart } from "@/context/CartContext";
 export default function Catalog() {
   // Filters State
   const [searchQuery, setSearchQuery] = useState("");
-  const [priceLimit, setPriceLimit] = useState(100);
+  const [minPrice, setMinPrice] = useState(10);
+  const [maxPrice, setMaxPrice] = useState(100);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [sortBy, setSortBy] = useState("default");
   
@@ -36,14 +38,14 @@ export default function Catalog() {
       const matchesSearch = product.title.toLowerCase().includes(searchQuery.toLowerCase());
       
       // Price filter
-      const matchesPrice = product.price <= priceLimit;
+      const matchesPrice = product.price >= minPrice && product.price <= maxPrice;
       
       // Category filter
       const matchesCategory = selectedCategory ? product.category === selectedCategory : true;
       
       return matchesSearch && matchesPrice && matchesCategory;
     });
-  }, [searchQuery, priceLimit, selectedCategory]);
+  }, [searchQuery, minPrice, maxPrice, selectedCategory]);
 
   // Sorted Products
   const sortedProducts = useMemo(() => {
@@ -76,16 +78,17 @@ export default function Catalog() {
   // Clear all filters
   const handleResetFilters = () => {
     setSearchQuery("");
-    setPriceLimit(100);
+    setMinPrice(10);
+    setMaxPrice(100);
     setSelectedCategory(null);
     setSortBy("default");
     setCurrentPage(1);
   };
 
-  const filtersActive = !!(selectedCategory || searchQuery || priceLimit < 100);
+  const filtersActive = !!(selectedCategory || searchQuery || minPrice > 10 || maxPrice < 100);
 
   return (
-    <section className={styles.catalogSection}>
+    <motion.section className={styles.catalogSection} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} viewport={{ once: true }}>
       {/* Toast Notification */}
       {toastMessage && <div className={styles.toast}>{toastMessage}</div>}
 
@@ -101,22 +104,33 @@ export default function Catalog() {
               aria-label="Search honey products"
             />
           </div>
-          <label className={styles.toolbarField}>
+          <div className={styles.categoryFilter}>
             <span>Category</span>
-            <select value={selectedCategory ?? "all"} onChange={(e) => { setSelectedCategory(e.target.value === "all" ? null : e.target.value); setCurrentPage(1); }}>
-              <option value="all">All products</option>
-              {Object.keys(categoriesCount).map((category) => <option key={category} value={category}>{category}</option>)}
-            </select>
-          </label>
-          <label className={styles.toolbarField}>
-            <span>Price up to</span>
-            <select value={priceLimit} onChange={(e) => { setPriceLimit(Number(e.target.value)); setCurrentPage(1); }}>
-              <option value="100">Any price</option>
-              <option value="25">$25</option>
-              <option value="50">$50</option>
-              <option value="75">$75</option>
-            </select>
-          </label>
+            <div className={styles.categoryScroller} role="listbox" aria-label="Filter by category">
+              <button type="button" className={!selectedCategory ? styles.categoryChipActive : styles.categoryChip} onClick={() => { setSelectedCategory(null); setCurrentPage(1); }}>All</button>
+              {Object.keys(categoriesCount).map((category) => (
+                <button
+                  type="button"
+                  key={category}
+                  className={selectedCategory === category ? styles.categoryChipActive : styles.categoryChip}
+                  onClick={() => { setSelectedCategory(selectedCategory === category ? null : category); setCurrentPage(1); }}
+                >
+                  {category.replace(" Honey", "")}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className={styles.priceFilter}>
+            <div className={styles.priceFilterHeader}>
+              <span>Price range</span>
+              <strong>${minPrice} – ${maxPrice}</strong>
+            </div>
+            <div className={styles.rangeTrack}>
+              <div className={styles.rangeFill} style={{ left: `${((minPrice - 10) / 90) * 100}%`, right: `${100 - ((maxPrice - 10) / 90) * 100}%` }} />
+              <input aria-label="Minimum price" className={styles.rangeInput} type="range" min="10" max="100" value={minPrice} onChange={(e) => { setMinPrice(Math.min(Number(e.target.value), maxPrice - 1)); setCurrentPage(1); }} />
+              <input aria-label="Maximum price" className={styles.rangeInput} type="range" min="10" max="100" value={maxPrice} onChange={(e) => { setMaxPrice(Math.max(Number(e.target.value), minPrice + 1)); setCurrentPage(1); }} />
+            </div>
+          </div>
           <label className={styles.toolbarField}>
             <span>Sort by</span>
             <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
@@ -149,6 +163,6 @@ export default function Catalog() {
           />
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

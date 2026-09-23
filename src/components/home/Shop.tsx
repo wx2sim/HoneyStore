@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Image from "next/image";
 import styles from "./Shop.module.css";
 
@@ -30,7 +33,13 @@ const shopData = [
 
 export default function Shop() {
   return (
-    <section className={styles.shop}>
+    <motion.section
+      className={styles.shop}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true }}
+    >
       <div className={styles.container}>
         <div className={styles.header}>
           <span className={styles.subtitle}>Our Products</span>
@@ -80,6 +89,6 @@ export default function Shop() {
       {/* Decorative Elements */}
       <Image src="/assets/images/dots.png" alt="" width={100} height={100} className={styles.dots} />
       <div className={styles.circleBg}></div>
-    </section>
+    </motion.section>
   );
 }

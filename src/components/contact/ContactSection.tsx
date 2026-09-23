@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Image from "next/image";
 import styles from "./ContactSection.module.css";
 
@@ -40,7 +41,7 @@ const infoCards = [
 
 export default function ContactSection() {
   return (
-    <section className={styles.contactSection}>
+    <motion.section className={styles.contactSection} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} viewport={{ once: true }}>
       {/* Decorative bee */}
       <div className={styles.beeDecor}>
         <Image src="/assets/about/company/bee.png" alt="" width={88} height={88} />
@@ -209,6 +210,6 @@ export default function ContactSection() {
 
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

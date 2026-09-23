@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Image from "next/image";
 import styles from "./Technology.module.css";
 
@@ -9,7 +12,13 @@ const stats = [
 
 export default function Technology() {
   return (
-    <section className={styles.techSection}>
+    <motion.section
+      className={styles.techSection}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true }}
+    >
       <div className={styles.bgBlob}></div>
       <div className={styles.container}>
         {/* Decorative Triangles */}
@@ -58,6 +67,6 @@ export default function Technology() {
 
       {/* Decorative Bottom Wave */}
       <div className={styles.bottomWave}></div>
-    </section>
+    </motion.section>
   );
 }

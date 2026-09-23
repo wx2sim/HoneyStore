@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Image from "next/image";
 import styles from "./Features.module.css";
 
@@ -41,7 +44,13 @@ const featureData = [
 
 export default function Features() {
   return (
-    <section className={styles.features}>
+    <motion.section
+      className={styles.features}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true }}
+    >
       {/* Background Shapes */}
       <div className={styles.bgShapes}>
         <Image src="/assets/home/features/bg-blob-left.png" alt="" width={250} height={250} className={styles.blobLeft} />
@@ -62,6 +71,6 @@ export default function Features() {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

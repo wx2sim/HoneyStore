@@ -46,6 +46,7 @@
   overflow: hidden;
   z-index: 2;
   box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.8s ease;
 }
 
 .mainImg {
@@ -55,6 +56,14 @@
 
 .imageCircle:hover .mainImg {
   transform: scale(1.05);
+}
+
+.imageCircle:hover {
+  box-shadow:
+    0 0 0 4px rgba(255, 184, 76, 0.55),
+    0 0 22px rgba(255, 152, 0, 0.8),
+    0 0 58px rgba(255, 184, 76, 0.55),
+    0 15px 50px rgba(0, 0, 0, 0.12);
 }
 
 .trailsSvg {

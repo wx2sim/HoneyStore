@@ -1,9 +1,12 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Image from "next/image";
 import styles from "./Company.module.css";
 
 export default function Company() {
   return (
-    <section className={styles.company}>
+    <motion.section className={styles.company} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} viewport={{ once: true }}>
       <div className={styles.container}>
         <div className={styles.grid}>
           {/* Left Side: Circular Image with Glow & Bees */}
@@ -90,6 +93,6 @@ export default function Company() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
