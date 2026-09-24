@@ -79,7 +79,7 @@ export default function Header() {
           {/* Logo (Centered in Mobile) */}
           <Link href="/" className={styles.logo} onClick={closeMenu}>
             <Image
-              src="/assets/home/header/logo.png"
+              src="/assets/home/header/headerlogo.png"
               alt="Hania Logo"
               width={120}
               height={40}
@@ -147,13 +147,13 @@ export default function Header() {
             <div className={`${styles.locationBlock} ${styles.desktopOnly}`}>
               <svg className={styles.locIcon} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
               <div className={styles.locText}>
-                <span>202 Honey Springs Rd,</span>
-                <span>Crawford, TN 38554</span>
+                <span>City 1st Nov,</span>
+                <span>Berrouaghia , Medea , ALgeria</span>
               </div>
             </div>
 
             <div className={`${styles.contactBlock} ${styles.desktopOnly}`}>
-              <span className={styles.phone}>800.275.8777</span>
+              <span className={styles.phone}>+213798778566</span>
               <span className={styles.callUs}>Call Us</span>
             </div>
 

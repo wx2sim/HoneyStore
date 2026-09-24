@@ -10,7 +10,7 @@ const shopData = [
     name: "Hanio",
     category: "Pure Natural Honey",
     price: "$29.00",
-    image: "/assets/home/shop/product-1.png",
+    image: "/assets/home/shop/pro1.jfif",
     rating: 5
   },
   {
@@ -18,7 +18,7 @@ const shopData = [
     name: "Honia",
     category: "Organic Honey",
     price: "$35.00",
-    image: "/assets/home/shop/product-2.png",
+    image: "/assets/home/shop/pro2.jfif",
     rating: 5
   },
   {
@@ -26,7 +26,7 @@ const shopData = [
     name: "Hanio",
     category: "Pure Natural Honey",
     price: "$25.00",
-    image: "/assets/home/shop/product-3.png",
+    image: "/assets/home/shop/pro3.jfif",
     rating: 5
   }
 ];
@@ -37,7 +37,7 @@ export default function Shop() {
       className={styles.shop}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={{ duration: 0.9, ease: "easeOut" }}
       viewport={{ once: true }}
     >
       <div className={styles.container}>

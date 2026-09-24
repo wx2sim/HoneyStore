@@ -10,7 +10,7 @@ export default function Testimonials() {
       className={styles.testimonials}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={{ duration: 0.9, ease: "easeOut" }}
       viewport={{ once: true }}
     >
       <div className={styles.container}>
@@ -40,14 +40,14 @@ export default function Testimonials() {
             </div>
 
             <div className={styles.customerInfo}>
-              <h4 className={styles.customerName}>Jane Doe</h4>
-              <span className={styles.customerRole}>Manager</span>
+              <h4 className={styles.customerName}>Wassim Mahdjoubi</h4>
+              <span className={styles.customerRole}>Farm Owner</span>
             </div>
           </div>
 
           <div className={styles.imageBox}>
             <Image
-              src="/assets/home/testimonials/customer-1.png"
+              src="/assets/home/testimonials/me.jpg"
               alt="Jane Doe"
               width={250}
               height={250}

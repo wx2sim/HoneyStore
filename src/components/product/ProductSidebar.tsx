@@ -53,7 +53,7 @@ export default function ProductSidebar() {
   };
 
   return (
-    <motion.aside className={styles.sidebarCol} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} viewport={{ once: true }}>
+    <motion.aside className={styles.sidebarCol} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: "easeOut" }} viewport={{ once: true }}>
       {/* Widget 1: Cart */}
       <div className={styles.widget}>
         <div className={styles.widgetRibbon}></div>

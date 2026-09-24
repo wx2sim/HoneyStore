@@ -8,27 +8,27 @@ import Link from "next/link";
 const teamMembers = [
   {
     id: 1,
-    name: "John Doe",
+    name: " Wassim Mahdjoubi",
     role: "Co Founder",
-    image: "/assets/about/team/team-1.png",
+    image: "/assets/about/team/Standard.jfif",
   },
   {
     id: 2,
     name: "Jane Smith",
     role: "Manager",
-    image: "/assets/about/team/team-2.png",
+    image: "/assets/about/team/Standard.jfif",
   },
   {
     id: 3,
-    name: "Mike Johnson",
+    name: "John Doe",
     role: "Beekeeper",
-    image: "/assets/about/team/team-3.png",
+    image: "/assets/about/team/Standard.jfif",
   },
 ];
 
 export default function Team() {
   return (
-    <motion.section className={styles.teamSection} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} viewport={{ once: true }}>
+    <motion.section className={styles.teamSection} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: "easeOut" }} viewport={{ once: true }}>
 
 
       <div className={styles.container}>

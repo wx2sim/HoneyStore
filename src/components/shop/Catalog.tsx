@@ -88,7 +88,7 @@ export default function Catalog() {
   const filtersActive = !!(selectedCategory || searchQuery || minPrice > 10 || maxPrice < 100);
 
   return (
-    <motion.section className={styles.catalogSection} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} viewport={{ once: true }}>
+    <motion.section className={styles.catalogSection} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: "easeOut" }} viewport={{ once: true }}>
       {/* Toast Notification */}
       {toastMessage && <div className={styles.toast}>{toastMessage}</div>}
 

@@ -19,7 +19,7 @@ const featureData = [
   },
   {
     id: 2,
-    title: "Honey Springs 555",
+    title: "Waney",
     desc: "Get Directions",
     hasDottedLine: true,
     icon: (
@@ -31,7 +31,7 @@ const featureData = [
   },
   {
     id: 3,
-    title: "(555) 111-4442",
+    title: "(213) 798778566",
     desc: "Call Us Now",
     hasDottedLine: true,
     icon: (
@@ -48,7 +48,7 @@ export default function Features() {
       className={styles.features}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={{ duration: 0.9, ease: "easeOut" }}
       viewport={{ once: true }}
     >
       {/* Background Shapes */}

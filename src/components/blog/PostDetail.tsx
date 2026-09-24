@@ -35,7 +35,7 @@ export default function PostDetail({ post }: Props) {
   const recentPosts = blogPosts.filter((p) => p.id !== post.id).slice(0, 4);
 
   return (
-    <motion.main className={styles.page} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} viewport={{ once: true }}>
+    <motion.main className={styles.page} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: "easeOut" }} viewport={{ once: true }}>
       {/* ── Hero Banner ──────────────────────────────────── */}
       <div className={styles.hero}>
         <div className={styles.heroBg}>
@@ -226,7 +226,7 @@ export default function PostDetail({ post }: Props) {
         </div>
 
         {/* ── Related Posts ──────────────────────────────── */}
-        <motion.section className={styles.relatedSection} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} viewport={{ once: true }}>
+        <motion.section className={styles.relatedSection} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: "easeOut" }} viewport={{ once: true }}>
           <h2 className={styles.relatedHeading}>
             <span className={styles.headingDot}>◆</span> Related Posts
           </h2>

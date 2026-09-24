@@ -8,7 +8,7 @@ const infoCards = [
   {
     id: 1,
     title: "Our Address",
-    text: "202 Honey Springs Rd, Crawford, TN 38554",
+    text: "City 1st Nov , Berrouaghia , Medea , ALgeria",
     icon: (
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
@@ -19,7 +19,7 @@ const infoCards = [
   {
     id: 2,
     title: "Phone Number",
-    text: "+1 800 275 8777",
+    text: "+213 798778566",
     icon: (
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.14 12 19.79 19.79 0 0 1 1.07 3.4 2 2 0 0 1 3.05 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z" />
@@ -29,7 +29,7 @@ const infoCards = [
   {
     id: 3,
     title: "Email Address",
-    text: "info@haniostore.com",
+    text: "mahdjoubi.wassim@gmail.com",
     icon: (
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
@@ -41,7 +41,7 @@ const infoCards = [
 
 export default function ContactSection() {
   return (
-    <motion.section className={styles.contactSection} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} viewport={{ once: true }}>
+    <motion.section className={styles.contactSection} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: "easeOut" }} viewport={{ once: true }}>
       {/* Decorative bee */}
       <div className={styles.beeDecor}>
         <Image src="/assets/about/company/bee.png" alt="" width={88} height={88} />
@@ -81,7 +81,7 @@ export default function ContactSection() {
             <div className={styles.mapBox}>
               <iframe
                 title="Our Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d206714.44648986247!2d-85.71539044558547!3d36.25568024609707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8864f4b5e2c74879%3A0x10c50c1ef78a2c9b!2sCrawford%2C%20TN%2038554!5e0!3m2!1sen!2sus!4v1695000000000!5m2!1sen!2sus"
+                src="https://www.google.com/maps?q=36.131974,2.931789&z=15&output=embed"
                 loading="lazy"
                 allowFullScreen
                 referrerPolicy="no-referrer-when-downgrade"

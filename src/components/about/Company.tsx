@@ -6,7 +6,7 @@ import styles from "./Company.module.css";
 
 export default function Company() {
   return (
-    <motion.section className={styles.company} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} viewport={{ once: true }}>
+    <motion.section className={styles.company} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: "easeOut" }} viewport={{ once: true }}>
       <div className={styles.container}>
         <div className={styles.grid}>
           {/* Left Side: Circular Image with Glow & Bees */}
@@ -72,7 +72,7 @@ export default function Company() {
             <h2 className={styles.title}>About Our Company</h2>
 
             <p className={styles.desc}>
-              Our company was founded in 2001. Our honey is 100% natural. We bring to you honey straight from the hive, unheated, unprocessed, unpasteurized.
+              Our company was founded in 2019. Our honey is 100% natural. We bring to you honey straight from the hive, unheated, unprocessed, unpasteurized.
             </p>
 
             <p className={styles.desc}>

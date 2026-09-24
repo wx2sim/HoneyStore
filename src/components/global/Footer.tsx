@@ -19,7 +19,7 @@ export default function Footer() {
           {/* Column 1: Brand */}
           <div className={styles.col}>
             <Link href="/" className={styles.logo}>
-              <Image src="/assets/images/header logo (1).png" alt="Hania" width={120} height={40} />
+              <Image src="/assets/images/headerlogo.png" alt="wanio" width={120} height={40} />
             </Link>
             <p className={styles.desc}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
@@ -38,7 +38,6 @@ export default function Footer() {
             <ul className={styles.linkList}>
               <li><Link href="/">Home</Link></li>
               <li><Link href="/about">About Us</Link></li>
-              <li><Link href="/services">Services</Link></li>
               <li><Link href="/shop">Shop</Link></li>
               <li><Link href="/blog">Blog</Link></li>
             </ul>
@@ -48,9 +47,9 @@ export default function Footer() {
           <div className={styles.col}>
             <h4 className={styles.colTitle}>Contact</h4>
             <ul className={styles.linkList}>
-              <li><span className={styles.contactItem}>123 Honey Street, Sweet City, 90210</span></li>
-              <li><span className={styles.contactItem}>(23) 456 7890</span></li>
-              <li><span className={styles.contactItem}>info@haniastore.com</span></li>
+              <li><span className={styles.contactItem}>City 1st Nov , Berrouaghia</span></li>
+              <li><span className={styles.contactItem}>(213) 798778566 </span></li>
+              <li><span className={styles.contactItem}>mahdjoubi.wassim@gmail.com   </span></li>
             </ul>
           </div>
 
@@ -66,7 +65,7 @@ export default function Footer() {
         </div>
 
         <div className={styles.bottomBar}>
-          <p>&copy; {new Date().getFullYear()} Honey Store. All Rights Reserved.</p>
+          <p>&copy; {new Date().getFullYear()} </p>
           <p>Designed by Wassim Mahdjoubi</p>
         </div>
       </div>

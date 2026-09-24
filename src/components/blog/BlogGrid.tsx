@@ -44,7 +44,7 @@ const ZigZagLine = () => (
 
 export default function BlogGrid() {
   return (
-    <motion.section className={styles.blogSection} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} viewport={{ once: true }}>
+    <motion.section className={styles.blogSection} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: "easeOut" }} viewport={{ once: true }}>
       <div className={styles.container}>
         {/* Blog Grid */}
         <div className={styles.grid}>
