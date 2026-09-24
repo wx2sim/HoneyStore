@@ -93,7 +93,7 @@ export default function CheckoutForm() {
   return (
     <div className={styles.page}>
       {/* Hero Banner */}
-      <motion.div className={styles.heroBanner} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} viewport={{ once: true }}>
+      <motion.div className={styles.heroBanner} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: "easeOut" }} viewport={{ once: true }}>
         <div className={styles.heroBg} />
         <div className={styles.heroContent}>
           <nav className={styles.breadcrumb}>
@@ -113,7 +113,7 @@ export default function CheckoutForm() {
           <div className={styles.formSide}>
 
             {/* Contact Info */}
-            <motion.section className={styles.formSection} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} viewport={{ once: true }}>
+            <motion.section className={styles.formSection} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: "easeOut" }} viewport={{ once: true }}>
               <h2 className={styles.sectionTitle}>
                 <span className={styles.stepNum}>1</span> Contact Information
               </h2>
@@ -140,7 +140,7 @@ export default function CheckoutForm() {
             </motion.section>
 
             {/* Shipping */}
-            <motion.section className={styles.formSection} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} viewport={{ once: true }}>
+            <motion.section className={styles.formSection} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: "easeOut" }} viewport={{ once: true }}>
               <h2 className={styles.sectionTitle}>
                 <span className={styles.stepNum}>2</span> Shipping Address
               </h2>
@@ -199,7 +199,7 @@ export default function CheckoutForm() {
             </motion.section>
 
             {/* Payment */}
-            <motion.section className={styles.formSection} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} viewport={{ once: true }}>
+            <motion.section className={styles.formSection} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: "easeOut" }} viewport={{ once: true }}>
               <h2 className={styles.sectionTitle}>
                 <span className={styles.stepNum}>3</span> Payment Method
               </h2>
