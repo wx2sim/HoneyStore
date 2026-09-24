@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import CheckoutForm from "@/components/checkout/CheckoutForm";
 
 export const metadata: Metadata = {
-  title: "Checkout — Hania Honey Store",
+  title: "Wanio",
   description: "Complete your order for premium organic honey products.",
 };
 

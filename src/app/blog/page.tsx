@@ -4,7 +4,7 @@ import Hero from "@/components/blog/Hero";
 import BlogGrid from "@/components/blog/BlogGrid";
 
 export const metadata: Metadata = {
-  title: "Blog - Hania Honey Store",
+  title: "Wanio",
   description: "Read our latest news, articles, and recipes involving natural honey, beekeeping, and healthy living.",
 };
 

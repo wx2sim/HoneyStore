@@ -11,9 +11,9 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   const post = blogPosts.find((p) => p.id.toString() === id);
-  if (!post) return { title: "Post Not Found" };
+  if (!post) return { title: "Wanio" };
   return {
-    title: `${post.title} — Hania Honey Store Blog`,
+    title: "Wanio",
     description: post.desc,
   };
 }

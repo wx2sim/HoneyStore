@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Hania Honey Store — Pure, Natural & Organic Honey",
-  description: "Shop premium organic honey, wildflower honey, raw honey and more at Hania Honey Store. Free shipping on orders over $50.",
+  title: "Wanio",
+  description: "Shop premium organic honey, wildflower honey, raw honey and more at Wanio. Free shipping on orders over $50.",
 };
 
 import Header from "@/components/global/Header";

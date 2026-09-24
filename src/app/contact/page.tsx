@@ -3,7 +3,7 @@ import ContactHero from "@/components/contact/Hero";
 import ContactSection from "@/components/contact/ContactSection";
 
 export const metadata: Metadata = {
-  title: "Contact Us – Hanio Honey Store",
+  title: "Wanio",
   description:
     "Get in touch with our team for questions about our organic honey products, bulk orders, farm visits, or beekeeping inquiries.",
 };
